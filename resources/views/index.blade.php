@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>To do app</h1>
+@extends('layouts.app')
+
+@section('title','To do app')
+@section('content')
     <table>
         <tr>
             <th>ID</th>
@@ -16,8 +11,7 @@
         </tr>
         
             @if (count($tasks)>0)
-                @foreach ($tasks as $task ) 
-                <!-- phần tử của 1 list -->
+                @foreach ($tasks as $task )
                 <tr>
                     <td>{{$task->id}}</td>
                     <td>{{$task->title}}</td>
@@ -31,8 +25,4 @@
                 </tr>
             @endif
     </table>
-    @isset($name)
-        <h1>I'm {{$name}}</h1>
-    @endisset
-</body>
-</html>
+@endsection
