@@ -20,7 +20,6 @@ Route::get('/tasks/{id}', function ($id) {
 })->name('tasks.detail');
 
 Route::post('tasks',function(Request $request){
-    // dd($request->all());
     $data = $request->validate([
         'title' => 'required|max:255',
         'description' => 'required|min:3|max:255',
@@ -32,5 +31,5 @@ Route::post('tasks',function(Request $request){
     $task->long_description = $data['long_description'];
     $task->completed = false;// set default value = false;
     $task->save();
-    return redirect()->route('tasks.index');
+    return redirect()->route('tasks.index')->with('success','Task created successfully');
 })->name('tasks.create');
